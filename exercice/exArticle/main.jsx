@@ -35,9 +35,7 @@ export default function Main() {
     }
     function deleteArticle(idDelete){
         // const found = article.find(article => article.id == idDelete)
-        setArticle(motCurrent => [
-            ...motCurrent.filter(motFiltrer => motFiltrer.id !== idDelete)
-        ])
+        setArticle(article.filter(motFiltrer => motFiltrer.id !== idDelete))
         // console.log(article);
 
         // article.splice(found,1)
