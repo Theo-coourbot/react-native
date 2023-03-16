@@ -38,8 +38,7 @@ export default function Main() {
         setArticle(article.filter(motFiltrer => motFiltrer.id !== idDelete))
         // console.log(article);
 
-        // article.splice(found,1)
-        // console.log(setArticle);
+
         // setArticle(article.splice(article.indexOf(found),1))
         // console.log(found);
     
@@ -47,8 +46,8 @@ export default function Main() {
    
       
     return (
-       <View>
-        <ModalArticle visible={modalVisible} addArticle={addArticle} closeModal={modalClose} addOneArticle={setArticle}/>
+       <View >
+        <ModalArticle visible={modalVisible} addArticle={addArticle} closeModal={modalClose} addOneArticle={setArticle} />
         <Text>Bienvenue</Text>
         <Button title='Ajouter un article' onPress={setModal} modalClose={modalClose}/>
         {article.length == 0 ? <Text>Il n'y a pas d'article</Text> : 

@@ -10,7 +10,7 @@ console.log(mot);
 }
 // coucouc
   return (
-    <Modal visible={props.visible}>
+    <Modal visible={props.visible} animationType='slide'>
       
         <View>
           <Pressable onPress={props.closeModal} style={({pressed}) => pressed && styles.pressedItem }>
