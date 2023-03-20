@@ -8,7 +8,7 @@ export default function Acceuil() {
   return (
     <View>
       {/* <Text> */}
-       {CATEGORIES.map(categorie => <Categorie key={categorie.id} categorie={categorie.title}  />)}
+       {CATEGORIES.map(categorie => <Categorie key={categorie.id} categorie={categorie.title} color={categorie.color}  />)}
        {/* coucou */}
        {/* </Text> */}
     </View>

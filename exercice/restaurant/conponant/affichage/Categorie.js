@@ -2,12 +2,19 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
 export default function Categorie(props) {
-  console.log(props);
+  // console.log(props);
+  // let color = props.color
+  console.log(props.categorie);
+  console.log(props.color);
   return (
     <View>
-      <Text>{props}</Text>
+      <Text style={styles.recette}>{props.categorie}</Text>
     </View>
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  // recette :{
+  //   backgroundColor : 
+  // }
+})
