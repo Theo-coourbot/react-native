@@ -6,7 +6,7 @@ import Categorie from './Categorie'
 
 export default function Acceuil() {
   return (
-    <View>
+    <View style={styles.container}>
       {/* <Text> */}
        {CATEGORIES.map(categorie => <Categorie key={categorie.id} categorie={categorie.title} color={categorie.color}  />)}
        {/* coucou */}
@@ -15,4 +15,9 @@ export default function Acceuil() {
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container : {
+    flex: 1,
+    padding: 10,
+  }
+})
