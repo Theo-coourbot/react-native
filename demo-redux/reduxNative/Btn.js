@@ -8,7 +8,7 @@ export default function Btn() {
     const dispatch = useDispatch()
 
     const ajout = () =>{
-        dispatch(addIds(Math.floor(Math.random()* 100)))
+        dispatch(addIds({id : Math.floor(Math.random()* 100)}))
     }
     
 
