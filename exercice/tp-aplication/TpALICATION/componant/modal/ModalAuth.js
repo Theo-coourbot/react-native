@@ -30,38 +30,30 @@ export default function ModalAuth(props) {
     }
     const conect = () => {
         // console.log('coucou');
-        const stockInfo = {
-            emailTxt,
-            mdpTxt,
-            returnSecureToken: true
+        // const stockInfo = {
+        //     emailTxt,
+        //     mdpTxt,
+        //     returnSecureToken: true
 
-        }
-        // setEmailTxt('')
-        // setMdpTxt('')
+        // }
+        const mail = emailTxt
+        const mdp = mdpTxt
+        setEmailTxt('')
+        setMdpTxt('')
 
         if(!mode){
             console.log('insc' + mode)
-            signUp(stockInfo)
+            props.signUp(mail,mdp)
+            props.closeModal()
             // console.log('coucouinsc')
         }else {
             // console.log('conect' + mode)
             // console.log('coucouconec')
-            signIn(stockInfo)
+            props.signIn(mail,mdp)
+            props.closeModal()
         }
     }
-    const signUp = async (stockInfo) => {
-        console.log(stockInfo)
-        // console.log('coucou')
-      const test =  await dispatch(signUpAction(stockInfo))
-        console.log(test)
-        props.closeModal()
-    }
-    const signIn = async (stockInfo) => {
-        // console.log('coucou2')
-        await dispatch(signInAction(stockInfo))
-       
-        props.closeModal()
-      }
+  
     
   
   return (

@@ -6,6 +6,7 @@ import Accueil from './componant/Accueil'
 
 import { Provider } from 'react-redux'
 import store from './store/store'
+import listeShark from './componant/ListeShark'
 const Stack =createNativeStackNavigator()
 
 export default function App() {
@@ -15,10 +16,10 @@ export default function App() {
 
   return (
     <Provider store={store}>
-    <NavigationContainer>
+    <NavigationContainer  >
       <Stack.Navigator initialRouteName='Accueil'>
         <Stack.Screen name="Accueil" component={Accueil} options={{headerShown : false}}></Stack.Screen>
-        {/* <Stack.Screen name="se conecter/s'inscrire" component={ModalAuth}></Stack.Screen> */}
+        <Stack.Screen  name="listeShark" component={listeShark} options={{title : 'Listes des requins membres'}}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
     </Provider>
@@ -26,4 +27,6 @@ export default function App() {
 }
 
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+
+})
