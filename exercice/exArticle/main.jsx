@@ -1,26 +1,70 @@
 import { Button, FlatList, Modal, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import ModalArticle from './shared/modal';
 import Article from './compenant/Article';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 // import TestModal from './component/TestModal';
 
 export default function Main() {
-
+    // const [value,setValue] = useState({name : '' });
     const [modalVisible,setModalVisible] = useState(false);
     const [article,setArticle] = useState([]);
     
 
 
-    const addArticle = (mot) => {
-       
-        setArticle(motCurrent => [
-            ...motCurrent, {
-                text : mot , id : Math.random().toString()
-            }
-        ])
-        console.log(article);
 
+    const addArticle = async (nom) => {   
+        try{
+            setArticle(motCurrent => [
+                ...motCurrent, {
+                    text : nom , id : Math.random().toString()
+                }
+            ])
+            const obj = article
+           await AsyncStorage.setItem('key',JSON.stringify(obj))
+    }catch (error) {
+        console.log(error)
     }
+}
+const getData = async () => {   
+    try{
+       
+        const value =  AsyncStorage.getItem('key')
+        if (value != null){
+            const tmpArray = []
+            
+            for (const key in value) {
+                tmpArray.push({id: key, ...value[key]})
+            }
+            setArticle(JSON.parse(value))
+        }
+    }catch (error) {
+        console.log(error)
+    }
+}
+useLayoutEffect   (() =>{
+    getData()
+    
+},[article])
+// const removeData = async () => {   
+//   try{
+//            await AsyncStorage.removeItem('key')
+//    setValue({name : '' })
+// }catch (error) {
+// console.log(error)
+// }}
+
+
+    // const addArticle = (mot) => {
+       
+    //     setArticle(motCurrent => [
+    //         ...motCurrent, {
+    //             text : mot , id : Math.random().toString()
+    //         }
+    //     ])
+    //     console.log(article);
+
+    // }
 
     function setModal() {
         // console.log("Clique sur le bouton");
@@ -62,6 +106,7 @@ export default function Main() {
                 }}
             />
         }
+        <Button title='get' onPress={getData}/>
        </View>
     )
 }
